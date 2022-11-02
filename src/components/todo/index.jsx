@@ -1,24 +1,29 @@
 import { createStore } from "solid-js/store";
-import { For } from "solid-js";
 
 import TodoItem from '../todo-item'
 
 const Todo = () => {
-const [todos, setTodo] = createStore([])
-
+const [todoStore, setTodo] = createStore([])
   const handleOnAddClick = ({name, checked}) => {
-    console.log('clciked', name, checked)
-    setTodo([...todos, {name, checked}])
+    setTodo(todos => [...todos, {name, checked, id: todoStore.length +1}])
   }
+
+  const handleRemove = id => setTodo(
+    todos => todos.filter(({id: todoId}) => todoId !== id)
+  )
 
   return (
     <>
-    <TodoItem onSave={handleOnAddClick} />
-   <For each={todos}>
-      {({name, checked}) => {
-      <TodoItem name={name} checked={checked} />
-      }}
-      </For>
+    <TodoItem onSave={handleOnAddClick}  />
+   <For each={todoStore}>
+      {props => 
+        <TodoItem 
+        name={props.name} 
+        checked={props.checked} 
+        onRemove={handleRemove}
+        />
+      }
+    </For>
     
   </>
   )

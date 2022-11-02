@@ -1,4 +1,4 @@
-const TodoItem = ({name='', checked, onSave, onRemove}) => {
+const TodoItem = ({name='', checked, id, onSave, onRemove}) => {
 
   let textRef
   let checkboxRef
@@ -12,11 +12,15 @@ const TodoItem = ({name='', checked, onSave, onRemove}) => {
     checkboxRef.checked = false
   }
 
+  const handleOnRemove = () => {
+    onRemove(id)
+  }
+
   return (
   <div>
     <input type='text' value={name} ref={textRef} />
     <input type="checkbox" checked={checked} ref={checkboxRef} />
-    { onRemove && <button  type='button' onClick={onRemove}>remove</button > }
+    { onRemove && <button  type='button' onClick={handleOnRemove}>remove</button > }
     { onSave && <button type='button' onClick={handleSaveClick}>save</button > }
   </div>
   )
