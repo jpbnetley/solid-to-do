@@ -1,3 +1,5 @@
+import styles from './styles.module.css'
+
 const TodoItem = ({name='', checked, id, onSave, onRemove}) => {
 
   let textRef
@@ -17,11 +19,21 @@ const TodoItem = ({name='', checked, id, onSave, onRemove}) => {
   }
 
   return (
-  <div>
-    <input type='text' value={name} ref={textRef} />
+  <div class={styles.container}>
+    <input type='text' value={name} ref={textRef} class={styles.input}/>
     <input type="checkbox" checked={checked} ref={checkboxRef} />
-    { onRemove && <button  type='button' onClick={handleOnRemove}>remove</button > }
-    { onSave && <button type='button' onClick={handleSaveClick}>save</button > }
+    
+    { onRemove && (
+    <button  type='button' onClick={handleOnRemove} class={styles.btnRemove}>
+      remove
+      </button >
+      ) }
+    
+    { onSave && (
+    <button type='button' onClick={handleSaveClick} class={styles.btnSave}>
+      save
+      </button >
+    ) }
   </div>
   )
 }
