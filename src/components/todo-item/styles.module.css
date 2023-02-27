@@ -1,0 +1,30 @@
+.input {
+  padding: 1em;
+  border-radius: 1em;
+}
+
+.container {
+  padding: 0.2em;
+  display: flex;
+  justify-content: space-evenly;
+  width: 1em;
+}
+
+.button-size {
+  min-width: 2em;
+}
+
+.btnSave {
+  background-color: green;
+  border-radius: 1em;
+  padding: 0.4em;
+  min-width: 2em;
+  min-width: 5em;
+}
+
+.btnRemove {
+  background-color: rgb(187, 84, 84);
+  border-radius: 1em;
+  padding: 0.4em;
+  min-width: 5em;
+}
