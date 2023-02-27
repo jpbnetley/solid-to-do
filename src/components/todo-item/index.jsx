@@ -12,6 +12,7 @@ const TodoItem = ({name='', checked, id, onSave, onRemove}) => {
     onSave({name: text, checked})
     textRef.value = ''
     checkboxRef.checked = false
+    textRef.focus()
   }
 
   const handleOnRemove = () => {

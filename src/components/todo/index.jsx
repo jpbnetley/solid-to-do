@@ -16,10 +16,11 @@ const [todoStore, setTodo] = createStore([])
     <>
     <TodoItem onSave={handleOnAddClick}  />
    <For each={todoStore}>
-      {props => 
+      {({name, checked, id}) => 
         <TodoItem 
-        name={props.name} 
-        checked={props.checked} 
+        name={name} 
+        checked={checked} 
+        id={id}
         onRemove={handleRemove}
         />
       }
